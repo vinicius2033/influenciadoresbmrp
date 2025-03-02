@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -56,6 +57,7 @@ nav {
 body{
     background: url("1052336.jpg") no-repeat center center fixed;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 .nav-list{
@@ -68,7 +70,7 @@ body{
 }
 
 .mobile-menu{
-    display: none;
+    display: block;
     cursor: pointer;
 }
 
@@ -80,11 +82,8 @@ body{
     transition: 0.3s;
 }
 
-@media (max-width: 999px){
-    body {
-        overflow-x: hidden;
-    }
-    .nav-list{
+@media (max-width: 999px) {
+    .nav-list {
         position: absolute;
         top: 8vh;
         right: 0;
@@ -97,17 +96,22 @@ body{
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
     }
-    .nav-list li{
+    .nav-list li {
         margin-left: 0;
         opacity: 0;
     }
-    .mobile-menu{
+    .mobile-menu {
         display: block;
     }
 }
 
 .nav-list.active{
     transform: translateX(0);
+}
+
+.nav-list.active li {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
 
 @keyframes navLinkFade{
@@ -258,11 +262,12 @@ transform: rotate(45deg) translate(-5px, -7px);
     justify-content: center;
     align-items: center;
     height: 90vh;
+    flex-wrap: wrap;
 }
 
 .social-buttons a{
     display: inline-block;
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .social-buttons img{
@@ -271,6 +276,7 @@ transform: rotate(45deg) translate(-5px, -7px);
     border-radius: 5px;
     border: 2px solid transparent;
     animation: lihgd788 4s ease infinite;
+    max-width: 100%;
 }
 
 @keyframes lihgd788 {
